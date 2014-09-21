@@ -104,6 +104,11 @@ if beautiful.wallpaper then
 end
 -- }}}
 
+-- Keyboard map indicator and changer
+kbdcfg = {}
+kbdcfg.cmd = "setxkbmap"
+kbdcfg.layout = { { "gb", "" } }
+
 -- {{{ Menu
 require("freedesktop/freedesktop")
 -- Menubar configuration
