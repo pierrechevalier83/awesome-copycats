@@ -586,6 +586,23 @@ globalkeys = awful.util.table.join(
             awful.util.spawn("amixer -q set " .. myvolumebar.channel .. " playback 100%")
             myvolumebar.notify()
         end),
+    -- now, same with media keys
+    awful.key({ }, "XF86AudioRaiseVolume",
+        function ()
+            awful.util.spawn("amixer -q set " .. myvolumebar.channel .. " " .. myvolumebar.step .. "+")
+            myvolumebar.notify()
+        end),
+    awful.key({ }, "XF86AudioLowerVolume",
+        function ()
+            awful.util.spawn("amixer -q set " .. myvolumebar.channel .. " " .. myvolumebar.step .. "-")
+            myvolumebar.notify()
+        end),
+    awful.key({ }, "XF86AudioMute",
+        function ()
+            awful.util.spawn("amixer -q set " .. myvolumebar.channel .. " playback toggle")
+            myvolumebar.notify()
+        end),
+
 
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",
@@ -604,6 +621,27 @@ globalkeys = awful.util.table.join(
             mpdwidget.update()
         end),
     awful.key({ altkey, "Control" }, "Right",
+        function ()
+            awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
+            mpdwidget.update()
+        end),
+    -- now, same with media keys
+    awful.key({ }, "XF86AudioPlay",
+        function ()
+            awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
+            mpdwidget.update()
+        end),
+    awful.key({ }, "XF86AudioStop",
+        function ()
+            awful.util.spawn_with_shell("mpc stop || ncmpcpp stop || ncmpc stop || pms stop")
+            mpdwidget.update()
+        end),
+    awful.key({ }, "XF86AudioPrev",
+        function ()
+            awful.util.spawn_with_shell("mpc prev || ncmpcpp prev || ncmpc prev || pms prev")
+            mpdwidget.update()
+        end),
+    awful.key({ }, "XF86AudioNext",
         function ()
             awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
             mpdwidget.update()
