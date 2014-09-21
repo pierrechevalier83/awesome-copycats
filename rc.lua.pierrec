@@ -53,6 +53,7 @@ run_once("urxvtd")
 run_once("unclutter")
 run_once("compton")
 run_once("xset -dpms")
+run_once("~/.setDisplay.sh")
 -- }}}
 
 -- {{{ Variable definitions
