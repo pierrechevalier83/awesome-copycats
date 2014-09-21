@@ -730,27 +730,31 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
+    
+    { rule = { class = "Firefox" },
+          properties = { tag = tags[1][1] } },
+
+    { rule = { class = "Pidgin" },
+          properties = { tag = tags[2][1] } },
+
+    { rule = { class = "QtCreator" },
+          properties = { tag = tags[1][2] } },
+    
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
 
-    { rule = { class = "MPlayer" },
-          properties = { floating = true } },
+    { rule = { class = "Subl" },
+          properties = { tag = tags[1][4] } },
 
-    { rule = { class = "Dwb" },
-          properties = { tag = tags[1][1] } },
+    { rule = { class = "Nautilus" },
+          properties = { tag = tags[2][4] } },
 
-    { rule = { class = "Iron" },
-          properties = { tag = tags[1][1] } },
+    { rule = { class = "VirtualBox" },
+          properties = { tag = tags[1][5] } },
 
-    { rule = { instance = "plugin-container" },
-          properties = { tag = tags[1][1] } },
+    { rule = { class = "Gnome-system-monitor" },
+          properties = { tag = tags[2][5] } }
 
-	  { rule = { class = "Gimp" },
-     	    properties = { tag = tags[1][4] } },
-
-    { rule = { class = "Gimp", role = "gimp-image-window" },
-          properties = { maximized_horizontal = true,
-                         maximized_vertical = true } },
 }
 -- }}}
 
