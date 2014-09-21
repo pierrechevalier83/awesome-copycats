@@ -15,6 +15,7 @@ local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local drop      = require("scratchdrop")
 local lain      = require("lain")
+local menubar   = require("menubar")
 -- }}}
 
 -- {{{ Error handling
@@ -103,6 +104,8 @@ end
 
 -- {{{ Menu
 require("freedesktop/freedesktop")
+-- Menubar configuration
+menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- {{{ Wibox
@@ -553,7 +556,6 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q",      awesome.quit),
 
     -- Dropdown terminal
     awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
@@ -623,7 +625,14 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+    -- Menubar
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- Locksckreen
+    awful.key({ modkey, "Shift" }, "q", function () awful.util.spawn("slock") end)
+
 )
 
 clientkeys = awful.util.table.join(
