@@ -135,7 +135,7 @@ calendar_icon:set_image(beautiful.calendar)
 calendarwidget = wibox.widget.background()
 calendarwidget:set_widget(mytextcalendar)
 calendarwidget:set_bgimage(beautiful.widget_bg)
-lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "bottom_right" })
+lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "top_right" })
 
 --[[ Mail IMAP check
 -- commented because it needs to be set before use
@@ -366,6 +366,7 @@ mytasklist.buttons = awful.util.table.join(
                                           end))
 
 for s = 1, screen.count() do
+
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
@@ -389,72 +390,51 @@ for s = 1, screen.count() do
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(first)
     left_layout:add(mytaglist[s])
-    left_layout:add(spr_small)
-    left_layout:add(mylayoutbox[s])
     left_layout:add(mypromptbox[s])
-
+    
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
-    --right_layout:add(mailwidget)
-    right_layout:add(batwidget)
-    right_layout:add(spr_right)
-    right_layout:add(prev_icon)
-    right_layout:add(next_icon)
-    right_layout:add(stop_icon)
-    right_layout:add(play_pause_icon)
-    right_layout:add(bar)
-    right_layout:add(mpd_icon)
-    right_layout:add(musicwidget)
-    right_layout:add(bar)
-    right_layout:add(spr_very_small)
-    right_layout:add(volumewidget)
-    right_layout:add(spr_left)
+    if s == 1 then
+      right_layout:add(wibox.widget.systray())
+      --right_layout:add(mailwidget)
+      right_layout:add(batwidget)
+      right_layout:add(spr_right)
+      right_layout:add(prev_icon)
+      right_layout:add(next_icon)
+      right_layout:add(stop_icon)
+      right_layout:add(play_pause_icon)
+      right_layout:add(bar)
+      right_layout:add(mpd_icon)
+      right_layout:add(musicwidget)
+      right_layout:add(bar)
+      right_layout:add(spr_very_small)
+      right_layout:add(volumewidget)
+      right_layout:add(spr_left)
+      right_layout:add(spr_right)
+      right_layout:add(netdown_icon)
+      right_layout:add(networkwidget)
+      right_layout:add(netup_icon)
+      right_layout:add(bar)
+      right_layout:add(cpu_icon)
+      right_layout:add(cpuwidget)
+      right_layout:add(bottom_bar)
+      right_layout:add(calendar_icon)
+      right_layout:add(calendarwidget)
+      right_layout:add(bar)
+      right_layout:add(clock_icon)
+      right_layout:add(clockwidget)
+      right_layout:add(spr_left)
+      right_layout:add(spr_right)
+    end
+    right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
+    layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
 
     mywibox[s]:set_widget(layout)
-
-    -- Create the bottom wibox
-    mybottomwibox[s] = awful.wibox({ position = "bottom", screen = s, border_width = 0, height = 32 })
-
-    -- Widgets that are aligned to the bottom left
-    bottom_left_layout = wibox.layout.fixed.horizontal()
-    bottom_left_layout:add(awesome_icon)
-
-    -- Widgets that are aligned to the bottom right
-    bottom_right_layout = wibox.layout.fixed.horizontal()
-    bottom_right_layout:add(spr_bottom_right)
-    bottom_right_layout:add(netdown_icon)
-    bottom_right_layout:add(networkwidget)
-    bottom_right_layout:add(netup_icon)
-    bottom_right_layout:add(bottom_bar)
-    bottom_right_layout:add(cpu_icon)
-    bottom_right_layout:add(cpuwidget)
-    bottom_right_layout:add(bottom_bar)
-    bottom_right_layout:add(calendar_icon)
-    bottom_right_layout:add(calendarwidget)
-    bottom_right_layout:add(bottom_bar)
-    bottom_right_layout:add(clock_icon)
-    bottom_right_layout:add(clockwidget)
-    bottom_right_layout:add(last)
-
-    -- Now bring it all together (with the tasklist in the middle)
-    bottom_layout = wibox.layout.align.horizontal()
-    bottom_layout:set_left(bottom_left_layout)
-    bottom_layout:set_middle(mytasklist[s])
-    bottom_layout:set_right(bottom_right_layout)
-    mybottomwibox[s]:set_widget(bottom_layout)
-
-    -- Set proper backgrounds, instead of beautiful.bg_normal
-    mywibox[s]:set_bg(beautiful.topbar_path .. screen[mouse.screen].workarea.width .. ".png")
-    mybottomwibox[s]:set_bg("#242424")
-
-    -- Create a borderbox above the bottomwibox
-    lain.widgets.borderbox(mybottomwibox[s], s, { position = "top", color = "#0099CC" } )
 end
 -- }}}
 
@@ -524,7 +504,6 @@ globalkeys = awful.util.table.join(
     -- Show/Hide Wibox
     awful.key({ modkey }, "b", function ()
         mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
-        mybottomwibox[mouse.screen].visible = not mybottomwibox[mouse.screen].visible
     end),
 
     -- On the fly useless gaps change
