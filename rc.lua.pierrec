@@ -54,6 +54,7 @@ run_once("unclutter")
 run_once("compton")
 run_once("xset -dpms")
 run_once("~/.setDisplay.sh")
+run_once("setxkbmap gb")
 -- }}}
 
 -- {{{ Variable definitions
@@ -66,7 +67,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/pierrec/theme.lua")
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "urxvt" or "xterm"
+terminal   = "gnome-terminal" or "urxvt" or "xterm"
 editor     = os.getenv("EDITOR") or "vim" or "vi" or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -143,12 +144,11 @@ calendarwidget:set_widget(mytextcalendar)
 calendarwidget:set_bgimage(beautiful.widget_bg)
 lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "top_right" })
 
---[[ Mail IMAP check
--- commented because it needs to be set before use
+-- Mail IMAP check
 mailwidget = lain.widgets.imap({
     timeout  = 180,
-    server   = "server",
-    mail     = "mail",
+    server   = "mail.psenterprise.com",
+    mail     = "p.chevalier@psenterprise.com",
     password = "keyring get mail",
     settings = function()
         mail_notification_preset.fg = "#FFFFFF"
@@ -163,7 +163,6 @@ mailwidget = lain.widgets.imap({
         widget:set_markup(markup(blue, mail) .. markup("#FFFFFF", count))
     end
 })
-]]
 
 -- MPD
 mpd_icon = wibox.widget.imagebox()
@@ -402,7 +401,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then
       right_layout:add(wibox.widget.systray())
-      --right_layout:add(mailwidget)
+      right_layout:add(mailwidget)
       right_layout:add(batwidget)
       right_layout:add(spr_right)
       right_layout:add(prev_icon)
