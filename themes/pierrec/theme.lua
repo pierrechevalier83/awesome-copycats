@@ -9,7 +9,7 @@ theme                               = {}
 
 theme.icon_dir                      = os.getenv("HOME") .. "/.config/awesome/themes/pierrec/icons"
 
-theme.wallpaper                     = os.getenv("HOME") .. "/.config/awesome/themes/pierrec/wall.png"
+theme.wallpaper                     = os.getenv("HOME") .. "/.config/awesome/themes/pierrec/wall.jpg"
 
 theme.topbar_path                   = "png:" .. theme.icon_dir .. "/topbar/"
 
