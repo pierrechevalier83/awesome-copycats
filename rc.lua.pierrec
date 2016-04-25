@@ -1,5 +1,4 @@
 --[[
-                                
      Pierrec Awesome WM config 2.0 
      configuration freely inspired from github.com/copycat-killer  
 
@@ -68,14 +67,14 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/pierrec/theme.lua")
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "gnome-terminal" or "urxvt" or "xterm"
+terminal   = "urxvt" or "gnome-terminal" or "xterm"
 editor     = os.getenv("EDITOR") or "vim" or "vi" or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "firefox"
 browser2   = "chromium"
-gui_editor = "subl"
+gui_editor = "subl3"
 graphics   = "gimp"
 musiplr   = terminal .. " -e ncmpcpp "
 
@@ -109,7 +108,6 @@ kbdcfg.cmd = "setxkbmap"
 kbdcfg.layout = { { "gb", "" } }
 
 -- {{{ Menu
-require("freedesktop/freedesktop")
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
@@ -746,7 +744,7 @@ awful.rules.rules = {
           properties = { opacity = 0.99 } },
 
     { rule = { class = "Subl" },
-          properties = { tag = tags[1][4] } },
+          properties = { tag = tags[1][2] } },
 
     { rule = { class = "Nautilus" },
           properties = { tag = tags[2][4] } },
