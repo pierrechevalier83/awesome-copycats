@@ -400,7 +400,7 @@ for s = 1, screen.count() do
     
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then
+    if s == 2 then
       right_layout:add(wibox.widget.systray())
       right_layout:add(mailwidget)
       right_layout:add(batwidget)
@@ -735,33 +735,32 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
-    
     { rule = { class = "Firefox" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { class = "Pidgin" },
           properties = { tag = tags[2][1] } },
 
+    { rule = { class = "Pidgin" },
+          properties = { tag = tags[1][1] } },
+
     { rule = { class = "QtCreator" },
-          properties = { tag = tags[1][2] } },
-    
+          properties = { tag = tags[2][2] } },
+
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
 
-    { rule = { class = "Subl" },
-          properties = { tag = tags[1][2] } },
+    { rule = { class = "Subl3" },
+          properties = { tag = tags[2][2] } },
 
     { rule = { class = "Nautilus" },
-          properties = { tag = tags[2][4] } },
+          properties = { tag = tags[1][4] } },
 
     { rule = { class = "VirtualBox" },
-          properties = { tag = tags[1][5] } },
-
-    { rule = { class = "Gnome-system-monitor" },
           properties = { tag = tags[2][5] } },
 
+    { rule = { class = "Gnome-system-monitor" },
+          properties = { tag = tags[1][5] } },
+
     { rule = { class = "com-psenterprise-application-modelbuilder-Main" },
-          properties = { tag = tags[2][6] } }
+          properties = { tag = tags[1][6] } }
 }
 -- }}}
 
