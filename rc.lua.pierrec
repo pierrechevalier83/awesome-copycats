@@ -744,8 +744,11 @@ awful.rules.rules = {
     { rule = { class = "QtCreator" },
           properties = { tag = tags[2][2] } },
 
+    { rule = { class = "st" },
+          properties = { opacity = 0.90 } },
+
     { rule = { class = "URxvt" },
-          properties = { opacity = 0.99 } },
+          properties = { opacity = 0.90 } },
 
     { rule = { class = "Subl3" },
           properties = { tag = tags[2][2] } },
