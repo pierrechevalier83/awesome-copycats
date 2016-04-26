@@ -51,7 +51,7 @@ end
 run_once("davmail")
 run_once("urxvtd")
 run_once("unclutter")
-run_once("compton")
+run_once("compton -bcCGf -i 0.7 -e 0.8 -f --sw-opti --active-opacity .95")
 run_once("xset -dpms")
 run_once("~/.setDisplay.sh")
 run_once("setxkbmap gb")
@@ -734,7 +734,6 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons,
-                     opacity = 0.90 ,
 	             size_hints_honor = false } },
     { rule = { class = "Firefox" },
           properties = { tag = tags[2][1] } },
@@ -745,14 +744,8 @@ awful.rules.rules = {
     { rule = { class = "QtCreator" },
           properties = { tag = tags[2][2] } },
 
-    { rule = { class = "st" },
-          properties = { opacity = 0.90 } },
-
-    { rule = { class = "URxvt" },
-          properties = { opacity = 0.90 } },
-
     { rule = { class = "Atom" },
-          properties = { opacity = 0.90, tag = tags[2][2] } },
+          properties = { tag = tags[2][2] } },
 
     { rule = { class = "Subl3" },
           properties = { tag = tags[2][2] } },
