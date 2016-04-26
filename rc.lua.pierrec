@@ -750,6 +750,9 @@ awful.rules.rules = {
     { rule = { class = "URxvt" },
           properties = { opacity = 0.90 } },
 
+    { rule = { class = "Atom" },
+          properties = { opacity = 0.90, tag = tags[2][2] } },
+
     { rule = { class = "Subl3" },
           properties = { tag = tags[2][2] } },
 
