@@ -734,7 +734,8 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons,
-	                   size_hints_honor = false } },
+                     opacity = 0.90 ,
+	             size_hints_honor = false } },
     { rule = { class = "Firefox" },
           properties = { tag = tags[2][1] } },
 
