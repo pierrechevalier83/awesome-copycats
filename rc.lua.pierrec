@@ -51,7 +51,7 @@ end
 run_once("davmail")
 run_once("urxvtd")
 run_once("unclutter")
-run_once("compton -bcCGf -i 0.7 -e 0.8 -f --sw-opti --active-opacity .95")
+run_once("compton -bcCGf -i 0.75 -e 0.8 -f --sw-opti --active-opacity .95")
 run_once("xset -dpms")
 run_once("~/.setDisplay.sh")
 run_once("setxkbmap gb")
