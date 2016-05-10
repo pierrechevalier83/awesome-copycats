@@ -635,7 +635,7 @@ globalkeys = awful.util.table.join(
 
     -- Copy to clipboard
     awful.key({ "Control", "Shift" }, "c", function () os.execute("xclip -selection primary -o | xclip -selection clipboard") end),
-    awful.key({ "Control", "Shift" }, "v", function () os.execute("sh -c 'xclip -selection clipboard -o | xvkbd -xsendevent -file - 2>/dev/null'") end),
+    awful.key({ "Control", "Shift" }, "v", function () os.execute("sh -c 'xclip -selection clipboard -o | xvkbd -xsendevent -delay 0 -file - 2>/dev/null'") end),
 
     -- User programs
     awful.key({ modkey }, "q", function () awful.util.spawn(browser) end),
