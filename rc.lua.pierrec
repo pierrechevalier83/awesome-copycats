@@ -371,9 +371,8 @@ for s = 1, screen.count() do
     
     -- Widgets that are aligned to the upper right
     local right_layout = wibox.layout.fixed.horizontal()
-    if s == 2 then
+    if s == 1 then
       right_layout:add(wibox.widget.systray())
-      right_layout:add(mailwidget)
       right_layout:add(batwidget)
       right_layout:add(spr_right)
       right_layout:add(prev_icon)
