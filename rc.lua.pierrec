@@ -120,7 +120,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 markup = lain.util.markup
-blue   = "#80CCE6"
+blue   = theme.colors.blue
 space3 = markup.font("Tamsyn 3", " ")
 space2 = markup.font("Tamsyn 2", " ")
 
@@ -130,7 +130,7 @@ awesome_icon:set_image(beautiful.awesome_icon)
 awesome_icon:buttons(awful.util.table.join( awful.button({ }, 1, function() mymainmenu:toggle() end)))
 
 -- Clock
-mytextclock = awful.widget.textclock(markup("#FFFFFF", space3 .. "%H:%M" .. space2))
+mytextclock = awful.widget.textclock(markup(theme.fg_normal, space3 .. "%H:%M" .. space2))
 clock_icon = wibox.widget.imagebox()
 clock_icon:set_image(beautiful.clock)
 clockwidget = wibox.widget.background()
@@ -138,13 +138,13 @@ clockwidget:set_widget(mytextclock)
 clockwidget:set_bgimage(beautiful.widget_bg)
 
 -- Calendar
-mytextcalendar = awful.widget.textclock(markup("#FFFFFF", space3 .. "%d %b<span font='Tamsyn 5'> </span>"))
+mytextcalendar = awful.widget.textclock(markup(theme.fg_normal, space3 .. "%d %b<span font='Tamsyn 5'> </span>"))
 calendar_icon = wibox.widget.imagebox()
 calendar_icon:set_image(beautiful.calendar)
 calendarwidget = wibox.widget.background()
 calendarwidget:set_widget(mytextcalendar)
 calendarwidget:set_bgimage(beautiful.widget_bg)
-lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "top_right" })
+lain.widgets.calendar:attach(calendarwidget, { fg = theme.fg_normal, position = "top_right" })
 
 -- Mail IMAP check
 mailwidget = lain.widgets.imap({
@@ -153,7 +153,7 @@ mailwidget = lain.widgets.imap({
     mail     = "p.chevalier@psenterprise.com",
     password = "keyring get mail",
     settings = function()
-        mail_notification_preset.fg = "#FFFFFF"
+        mail_notification_preset.fg = theme.fg_normal
         mail  = ""
         count = ""
 
@@ -162,7 +162,7 @@ mailwidget = lain.widgets.imap({
             count = mailcount .. " "
         end
 
-        widget:set_markup(markup(blue, mail) .. markup("#FFFFFF", count))
+        widget:set_markup(markup(blue, mail) .. markup(theme.fg_normal, count))
     end
 })
 
@@ -254,7 +254,7 @@ myvolumebar = lain.widgets.alsabar({
     width  = 80,
     height = 10,
     colors = {
-        background = "#383838",
+        background = "theme.bg_normal",
         unmute     = "#80CCE6",
         mute       = "#FF9F9F"
     },
