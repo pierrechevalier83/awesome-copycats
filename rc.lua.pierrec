@@ -109,9 +109,6 @@ mymainmenu = awful.menu.new({ items = require("menugen").build_menu(),
                               theme = { height = 16, width = 130 }})
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
 -- {{{ Wibox
@@ -119,11 +116,6 @@ markup = lain.util.markup
 blue   = theme.colors.blue
 space3 = markup.font("Tamsyn 3", " ")
 space2 = markup.font("Tamsyn 2", " ")
-
--- Menu icon
-awesome_icon = wibox.widget.imagebox()
-awesome_icon:set_image(beautiful.awesome_icon)
-awesome_icon:buttons(awful.util.table.join( awful.button({ }, 1, function() mymainmenu:toggle() end)))
 
 -- Clock
 mytextclock = awful.widget.textclock(markup(theme.fg_normal, space3 .. "%H:%M" .. space2))
@@ -141,24 +133,6 @@ calendarwidget = wibox.widget.background()
 calendarwidget:set_widget(mytextcalendar)
 calendarwidget:set_bgimage(beautiful.widget_bg)
 lain.widgets.calendar:attach(calendarwidget, { fg = theme.fg_normal, position = "top_right" })
-
--- Mail IMAP check
-mailwidget = lain.widgets.imap({
-    timeout  = 180,
-    password = "keyring get mail",
-    settings = function()
-        mail_notification_preset.fg = theme.fg_normal
-        mail  = ""
-        count = ""
-
-        if mailcount > 0 then
-            mail = "Mail "
-            count = mailcount .. " "
-        end
-
-        widget:set_markup(markup(blue, mail) .. markup(theme.fg_normal, count))
-    end
-})
 
 -- MPD
 mpd_icon = wibox.widget.imagebox()
@@ -732,32 +706,6 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	             size_hints_honor = false } },
-    { rule = { class = "Firefox" },
-          properties = { tag = tags[2][1] } },
-
-    { rule = { class = "Pidgin" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { class = "QtCreator" },
-          properties = { tag = tags[2][2] } },
-
-    { rule = { class = "Atom" },
-          properties = { tag = tags[2][2] } },
-
-    { rule = { class = "Subl3" },
-          properties = { tag = tags[2][2] } },
-
-    { rule = { class = "Nautilus" },
-          properties = { tag = tags[1][4] } },
-
-    { rule = { class = "VirtualBox" },
-          properties = { tag = tags[2][5] } },
-
-    { rule = { class = "Gnome-system-monitor" },
-          properties = { tag = tags[1][5] } },
-
-    { rule = { class = "com-psenterprise-application-modelbuilder-Main" },
-          properties = { tag = tags[1][6] } }
 }
 -- }}}
 
