@@ -65,7 +65,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/pierrec/theme.lua")
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "st -t Terminal -e dvtm" or "urxvt" or "gnome-terminal" or "xterm"
+terminal   = "gnome-terminal" or "st -t Terminal -e dvtm" or "urxvt" or "xterm"
 editor     = os.getenv("EDITOR") or "vim" or "vi" or "nano"
 editor_cmd = terminal .. " -e " .. editor
 

@@ -13,8 +13,8 @@ theme.wallpaper                     = os.getenv("HOME") .. "/.config/awesome/the
 
 theme.topbar_path                   = "png:" .. theme.icon_dir .. "/topbar/"
 
-theme.font                          = "Tamsyn 10.5"
-theme.taglist_font                  = "Tamsyn 8"
+theme.font                          = "Tamsyn 14.5"
+theme.taglist_font                  = "Tamsyn 12"
 
 theme.colors = {}
 theme.colors.base3   = "#002b36ff"
@@ -48,9 +48,9 @@ theme.tasklist_bg_normal            = theme.bg_normal
 theme.tasklist_fg_focus             = theme.fg_focus
 theme.tasklist_bg_focus             = theme.colors.blue
 theme.textbox_widget_margin_top     = 1
-theme.awful_widget_height           = 14
+theme.awful_widget_height           = 20
 theme.awful_widget_margin_top       = 2
-theme.menu_height                   = "20"
+theme.menu_height                   = "30"
 theme.menu_width                    = "400"
 
 theme.widget_bg                     = theme.icon_dir .. "/bg_focus_noline.png"
