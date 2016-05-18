@@ -36,14 +36,14 @@ theme.colors.green   = "#859900ff"
 
 theme.fg_normal                     = theme.colors.base02
 theme.fg_focus                      = theme.colors.base03
-theme.bg_normal                     = theme.colors.base3
+theme.bg_normal                     = theme.colors.base2
 theme.fg_urgent                     = theme.colors.base3
 theme.bg_urgent                     = theme.colors.red
 theme.border_width                  = "1"
 theme.border_normal                 = theme.bg_normal
 theme.border_focus                  = theme.colors.base03
 theme.taglist_fg_focus              = theme.fg_focus
-theme.taglist_bg_focus              = theme.bg_focus
+theme.taglist_bg_focus              = "png:" .. theme.icon_dir .. "/taglist_bg_focus.png"
 theme.tasklist_bg_normal            = theme.bg_normal
 theme.tasklist_fg_focus             = theme.fg_focus
 theme.tasklist_bg_focus             = theme.colors.blue
