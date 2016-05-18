@@ -299,9 +299,6 @@ networkwidget = wibox.widget.background()
 networkwidget:set_widget(netwidget)
 networkwidget:set_bgimage(beautiful.widget_bg)
 
--- Weather
-yawn = lain.widgets.yawn(123456)
-
 -- Separators
 first = wibox.widget.textbox('<span font="Tamsyn 4"> </span>')
 last = wibox.widget.imagebox()
@@ -549,7 +546,6 @@ globalkeys = awful.util.table.join(
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
-    awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
 
     -- ALSA volume control
     awful.key({ altkey }, "Up",
