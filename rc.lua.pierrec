@@ -51,7 +51,9 @@ end
 run_once("davmail")
 run_once("urxvtd")
 run_once("unclutter -root")
-run_once("compton -bcCGf -i 0.75 -e 0.8 -f --sw-opti --active-opacity .95")
+run_once("compton -C")
+run_once("docky")
+run_once("conky")
 run_once("xset -dpms")
 run_once("~/.setDisplay.sh")
 run_once("setxkbmap gb")
@@ -365,6 +367,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the upper left
     local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(mylauncher)
     left_layout:add(first)
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
@@ -711,6 +714,10 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	             size_hints_honor = false } },
+    { rule = { class = "Docky" },
+      properties = { ontop = true, focus = true } },
+    { rule = { name = "conky" },
+      properties = { border_width = 0 } }
 }
 -- }}}
 
