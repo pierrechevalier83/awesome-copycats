@@ -68,13 +68,13 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/pierrec/theme.lua")
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "st -t Terminal -e dvtm" or "urxvt" or "gnome-terminal" or "xterm"
+terminal   = "st -t Terminal" or "urxvt" or "gnome-terminal" or "xterm"
 editor     = os.getenv("EDITOR") or "vim" or "vi" or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "firefox"
-browser2   = "chromium"
+browser    = "tabbed -d -c surf -e"
+browser2   = "firefox"
 gui_editor = "subl3"
 graphics   = "gimp"
 musiplr   = terminal .. " -e ncmpcpp "
